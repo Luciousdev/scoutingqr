@@ -31,7 +31,7 @@
                             <td>
                                 <form action="{{ route('generate.qr') }}" method="post">
                                     @csrf
-                                    <input type="hidden" name="text" value="127.0.0.1:8000/entries/{{ $entry->alias }}">
+                                    <input type="hidden" name="text" value="scoutingqr.luciousdev.nl/entries/{{ $entry->alias }}">
                                     <button type="submit" class="btn btn-success">Generate QR</button>
                                 </form>
                             </td>
