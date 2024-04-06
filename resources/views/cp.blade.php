@@ -22,6 +22,7 @@
                         <th>ID</th>
                         <th>Alias</th>
                         <th>Text</th>
+                        <th>Actions</th>
                     </tr>
                     @foreach ($data as $entry)
                         <tr>
@@ -37,7 +38,6 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </table>
             </div>
         </div>
