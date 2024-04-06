@@ -28,4 +28,4 @@ Route::post('/create-entry', [EntriesController::class, 'createEntry']);
 Route::post('/auth-post', [EntriesController::class, 'authPost']);
 
 Route::post('/generate-qr', [EntriesController::class, 'generate'])->name('generate.qr');
-
+Route::post('/delete-entry', [EntriesController::class, 'delete'])->name('delete.entry');

@@ -35,6 +35,11 @@
                                     <input type="hidden" name="text" value="scoutingqr.luciousdev.nl/entries/{{ $entry->alias }}">
                                     <button type="submit" class="btn btn-success">Generate QR</button>
                                 </form>
+                                <form action="{{ route('delete.entry') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $entry->id }}">
+                                    <button type="submit" class="btn btn-danger">Delete entry</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

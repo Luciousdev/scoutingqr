@@ -92,4 +92,16 @@ class EntriesController extends Controller
         // Return the QR code view with the text
         return view('qr_code', compact('text'));
     }
+
+    public function delete(Request $request)
+    {
+        // Retrieve the alias from the form submission
+        $id = $request->input('id');
+
+        // Find the entry with the given alias and delete it
+        Entries::where('id', $id)->delete();
+
+        // Redirect back to the control panel
+        return redirect('/cp1234');
+    }
 }
