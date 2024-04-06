@@ -104,4 +104,44 @@ class EntriesController extends Controller
         // Redirect back to the control panel
         return redirect('/cp1234');
     }
+
+    public function goToUpdate(Request $request)
+    {
+        if(session('auth') !== true) {
+            return redirect('/cp')->withErrors(['error' => 'You are not authorized to view this page']);
+        }
+
+        $entryId = $request->query('id');
+        $data = Entries::where('id', $entryId)->first();
+
+        return view('update', compact('data'));
+    }
+
+
+    public function update(Request $request)
+    {
+        // Validate the request data
+        $validatedData = $request->validate([
+            'id' => 'required|integer',
+            'alias' => 'required|string|max:255',
+            'text' => 'required|string',
+        ]);
+
+        // Retrieve the entry by ID
+        $entry = Entries::find($validatedData['id']);
+
+        // Check if entry exists
+        if (!$entry) {
+            abort(404); // Entry not found
+        }
+
+        // Update entry data
+        $entry->alias = $validatedData['alias'];
+        $entry->text = $validatedData['text'];
+        $entry->save();
+
+
+        // Redirect back to the control panel
+        return redirect('/cp1234');
+    }
 }

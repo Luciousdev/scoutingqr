@@ -40,6 +40,7 @@
                                     <input type="hidden" name="id" value="{{ $entry->id }}">
                                     <button type="submit" class="btn btn-danger">Delete entry</button>
                                 </form>
+                                <a href="/update-entry?id={{ $entry->id }}" class="btn btn-info">Edit entry</a>
                             </td>
                         </tr>
                     @endforeach

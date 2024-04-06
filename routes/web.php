@@ -29,3 +29,5 @@ Route::post('/auth-post', [EntriesController::class, 'authPost']);
 
 Route::post('/generate-qr', [EntriesController::class, 'generate'])->name('generate.qr');
 Route::post('/delete-entry', [EntriesController::class, 'delete'])->name('delete.entry');
+Route::get('/update-entry', [EntriesController::class, 'goToUpdate'])->name('update.entry');
+Route::post('/update-entry-post', [EntriesController::class, 'update'])->name('update.entry.post');
